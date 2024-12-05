@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .social-login {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .social-login a {
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: white;
+            border-radius: 4px;
+        }
+        .social-login .google {
+            background-color: #DB4437;
+        }
+        .social-login .github {
+            background-color: #333;
+        }
+        .social-login a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Login</h1>
+    <!-- Username & Password Authentication -->
+    <form method="post" action="/login">
+        <!-- Include CSRF token -->
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <!-- Social Login -->
+    <div class="social-login">
+        <a href="/oauth2/authorization/google" class="google">Login with Google</a>
+        <a href="/oauth2/authorization/github" class="github">Login with GitHub</a>
+    </div>
+</div>
+</body>
+</html>
